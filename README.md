@@ -5,7 +5,7 @@
 Option 1: Clean checkout
 
         west init -m https://github.com/joerchan/tfm-manifest.git tfm
-        cd sniffer
+        cd tfm
         west update
 
 Option 2: Use existing checkout
