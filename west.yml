@@ -8,25 +8,32 @@ manifest:
       url-base: https://github.com/mcu-tools
     - name: armsw
       url-base: https://github.com/ARM-software/
+    - name: zephyr
+      url-base: https://github.com/zephyrproject-rtos
   projects:
     - name: trusted-firmware-m
       remote: tfm
-      revision: TF-Mv1.4.0-RC3
-    - name: psa-arch-tests
-      remote: armsw
-      revision: 51ff2bd
+      revision: TF-Mv2.0.0-RC2
+    - name: tf-m-extras
+      remote: tfm
+      revision: 805db7b
     - name: tf-m-tests
       remote: tfm
-      revision: 26b2d78
+      # lib/ext/tf-m-tests/version.txt
+      # Contains psa-arch-tests also?
+      revision: b0875b6
     - name: mbedtls
       remote: armmbed
-      revision: mbedtls-3.0.0
+      revision: mbedtls-3.5.0
       # Post checkout commands
       # make generated_files
       # git apply ../trusted-firmware-m/lib/ext/mbedcrypto/*.patch
     - name: mcuboot
       remote: mcutools
-      revision: TF-Mv1.4-integ
+      revision: v2.0.0
+    - name: hal_nordic
+      remote: zephyr
+      revision: nrfx-3.0.0
 
   self:
     path: tfm-manifest
