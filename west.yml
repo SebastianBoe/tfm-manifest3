@@ -34,6 +34,9 @@ manifest:
     - name: hal_nordic
       remote: zephyr
       revision: nrfx-3.0.0
+    - name: qcbor
+      url: https://github.com/laurencelundblade/QCBOR.git
+      revision: v1.2
 
   self:
     path: tfm-manifest
