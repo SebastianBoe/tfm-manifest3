@@ -21,6 +21,11 @@ cmake -GNinja -S $TFM_SOURCE_PATH -B build_spe \
         -DTFM_PLATFORM=nordic_nrf/$board \
         -DTFM_TOOLCHAIN_FILE=$TFM_SOURCE_PATH/toolchain_GNUARM.cmake \
         -DTFM_SPM_LOG_LEVEL="TFM_SPM_LOG_LEVEL_DEBUG" \
+        -DMBEDCRYPTO_PATH=$WEST_TOPDIR/mbedtls \
+        -DMBEDCRYPTO_FORCE_PATCH=ON \
+        -DHAL_NORDIC_PATH=$WEST_TOPDIR/hal_nordic \
+        -DMCUBOOT_PATH=$WEST_TOPDIR/mcuboot \
+        -DQCBOR_PATH=$WEST_TOPDIR/qcbor \
         -DTFM_PARTITION_LOG_LEVEL="TFM_PARTITION_LOG_LEVEL_DEBUG" \
         -DTFM_EXCEPTION_INFO_DUMP=ON \
         -DTFM_PARTITION_PROTECTED_STORAGE=ON \
@@ -28,11 +33,12 @@ cmake -GNinja -S $TFM_SOURCE_PATH -B build_spe \
         -DTFM_PARTITION_CRYPTO=ON \
         -DTFM_PARTITION_PLATFORM=ON
 
+
 cmake --build build_spe -- install
 
 cmake -GNinja -S ns_app -B build_app \
         -DCONFIG_SPE_PATH=$CWD/build_spe/api_ns \
-        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-        -DTFM_TOOLCHAIN_FILE=cmake/toolchain_ns_GNUARM.cmake
+        -DTFM_TOOLCHAIN_FILE=cmake/toolchain_ns_GNUARM.cmake \
+        -DCMAKE_BUILD_TYPE=RelWithDebInfo
 
 cmake --build build_app
