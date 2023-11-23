@@ -8,7 +8,7 @@ TFM_SOURCE_PATH=$WEST_TOPDIR/trusted-firmware-m
 TFM_TESTS_PATH=$WEST_TOPDIR/tf-m-tests
 CWD=`pwd`
 
-boards=("nrf9160dk_nrf9160" "nrf5340dk_nrf5340_cpuapp")
+boards=("nrf9160dk_nrf9160" "nrf5340dk_nrf5340_cpuapp" "nrf9161dk_nrf9161")
 
 if echo "${boards[@]}" | grep -qw "$1"; then
   board=$1
