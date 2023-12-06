@@ -23,3 +23,20 @@ Post checkout commands
         cd mbedtls
         make generated_files
         git apply ../trusted-firmware-m/lib/ext/mbedcrypto/*.patch
+
+### Using your existing TF-M repo
+
+First follow "Checkout the project".
+
+Then
+
+cd tfm-manifest/..
+rm -rf trusted-firmware-m
+ln -s ~/ncs/modules/tee/tf-m/trusted-firmware-m/
+
+
+### building and flashing
+
+cd tfm-manifest/hello_world
+bash build.sh
+bash flash.sh
