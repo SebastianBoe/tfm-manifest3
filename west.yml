@@ -13,7 +13,7 @@ manifest:
   projects:
     - name: trusted-firmware-m
       remote: tfm
-      revision: TF-Mv2.0.0-RC2
+      revision: TF-Mv2.0.0
     - name: tf-m-extras
       remote: tfm
       revision: 805db7b
